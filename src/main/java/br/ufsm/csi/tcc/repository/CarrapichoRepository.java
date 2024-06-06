@@ -12,4 +12,10 @@ public interface CarrapichoRepository extends Neo4jRepository<Carrapicho, String
 
     @Query("MATCH (c:Carrapicho) RETURN c LIMIT 20")
     List<Carrapicho> findFirst20Carrapichos();
+
+    @Query("""
+            MATCH (c:Carrapicho)
+            WHERE toFloat(c.umidade) <= $umidade
+            RETURN c""")
+    List<Carrapicho> findCarrapichosByUmidadeLessThanEqual(Double umidade);
 }

@@ -24,4 +24,8 @@ public class CarrapichoService {
     public List<Carrapicho> getFirst20Carrapichos() {
         return carrapichoRepository.findFirst20Carrapichos();
     }
+
+    public List<Carrapicho> getCarrapichoByUmidadeLessThanEqual(Double umidade) {
+        return carrapichoRepository.findCarrapichosByUmidadeLessThanEqual(umidade);
+    }
 }

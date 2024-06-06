@@ -5,6 +5,7 @@ import br.ufsm.csi.tcc.service.CarrapichoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,6 +29,11 @@ public class CarrapichoController {
     @GetMapping("first20")
     List<Carrapicho> getFirst20Carrapichos() {
         return carrapichoService.getFirst20Carrapichos();
+    }
+
+    @GetMapping("menorQue")
+    List<Carrapicho> getCarrapichosByUmidadeLessThanEqual (@RequestParam double umidade) {
+        return carrapichoService.getCarrapichoByUmidadeLessThanEqual(umidade);
     }
 
 }
